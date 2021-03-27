@@ -1,7 +1,7 @@
 #include<iostream>
 
 #include "dummy.hpp"
-#include "fractal.hpp"
+#include "fern.hpp"
 
 int main(int argc, char* argv[]) {
     Fern* fern = new Fern();
