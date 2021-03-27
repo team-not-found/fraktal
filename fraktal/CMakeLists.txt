@@ -11,6 +11,8 @@ add_library(fraktal SHARED
     ${HDRS}
 )
 
+add_executable(test test/main.cpp ${SRCS} ${HDRS})
+
 target_include_directories(static-fraktal
                          PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src"
                          )
