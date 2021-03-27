@@ -1,6 +1,6 @@
 
-file(GLOB_RECURSE SRCS *.cpp)
-file(GLOB_RECURSE HDRS *.hpp)
+file(GLOB_RECURSE SRCS src/*.cpp)
+file(GLOB_RECURSE HDRS src/*.hpp)
 
 add_executable(fraktal-cli ${SRCS} ${HDRS})
 

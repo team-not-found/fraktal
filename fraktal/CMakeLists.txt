@@ -1,5 +1,5 @@
-file(GLOB_RECURSE SRCS *.cpp)
-file(GLOB_RECURSE HDRS *.hpp)
+file(GLOB_RECURSE SRCS src/*.cpp)
+file(GLOB_RECURSE HDRS src/*.hpp)
 
 add_library(static-fraktal STATIC
     ${SRCS}
