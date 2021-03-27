@@ -6,6 +6,8 @@ add_library(static-fraktal STATIC
     ${HDRS}
 )
 
+set_target_properties(static-fraktal PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
+
 add_library(fraktal SHARED
     ${SRCS}
     ${HDRS}
