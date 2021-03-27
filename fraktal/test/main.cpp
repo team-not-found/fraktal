@@ -1,10 +1,16 @@
-#include "../src/fractal.hpp"
+#include "../src/utility/matrix2d.hpp"
+#include "../src/fern.hpp"
 
 using namespace std;
 int main() {
+	Matrix2d<double> matrix(5, 5);
+	matrix.print();
+	std::cout << matrix(2,3);
+	matrix.writeToFile("matrix2dtest.bin");
+
 	Fern newFern;
-	newFern.generatesFractal(300,-4,0,4,10,200000000);
+	newFern.generateFractal(3,-4,0,4,10,200000);
 	newFern.saveFractal("plot.bin");
-	cout << "Hello World!";
+
 	return 0;
 }

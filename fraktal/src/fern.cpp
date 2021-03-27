@@ -1,26 +1,18 @@
-#include "fractal.hpp"
+#include "fern.hpp"
 
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
 
-void Fern::generatesFractal(float plotDensity,float minX,float minY,float maxX,float maxY,long int steppNumber){
+void Fern::generateFractal(float plotDensity,float minX,float minY,float maxX,float maxY,long int stepNumber){
 	std::srand((unsigned int)time(NULL));//seed r gen
 	int rand;
 	float xy[2]={0.,0.};
 	float x_temp;
 	nX=(int)(maxX-minX)*plotDensity;
 	nY=(maxY-minY)*plotDensity;
-	densityMap = new float* [nX];
-	for (int i = 0; i < nX; ++i){
-		densityMap[i] =new float[nY];
-	}
+	densityMap = Matrix2d<double>(nX, nY);
 
-	for (int i = 0; i < nX; ++i){
-		for (int j = 0; j < nY; ++j){
-			densityMap[i][j]=0;
-		}
-	}
 	float f1[2][2] = {
 		{0.,0.},
 		{0.,0.16}
@@ -42,7 +34,7 @@ void Fern::generatesFractal(float plotDensity,float minX,float minY,float maxX,f
 	float v3[2]={0.,1.6};
 	float v4[2]={0.,0.44};
 
-	for (long int i = 0; i < steppNumber; ++i){
+	for (long int i = 0; i < stepNumber; ++i){
 		rand=std::rand() % 100+1;
 		if(rand==1){
 			x_temp=xy[0]*f1[0][0]+xy[1]*f1[0][1]+v1[0];
@@ -65,22 +57,11 @@ void Fern::generatesFractal(float plotDensity,float minX,float minY,float maxX,f
 			xy[0]=x_temp;
 		}
 		if((xy[0]<maxX)&&(xy[0]>minX)&&(xy[1]<maxY)&&(xy[1]>minY)){
-			densityMap[(int)((xy[0]-minX)*plotDensity)][(int)((xy[1]-minY)*plotDensity)]+=1;
-
+			densityMap((int)((xy[0]-minX)*plotDensity), (int)((xy[1]-minY)*plotDensity))+=1;
 		}
 	}
 }
 
 void Fern::saveFractal(const char *filename){
-	std::ofstream myfile;
-	myfile.open(filename);
-
-	for (int i = 0; i < nX; ++i){
-		for (int j = 0; j < nY; ++j){
-			myfile << densityMap[i][j];
-			myfile << " ";
-		}
-		myfile << "\n";
-	}
-	myfile.close();
+	densityMap.writeToFile(filename);
 }
