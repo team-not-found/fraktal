@@ -1,5 +1,5 @@
 #include "../src/utility/matrix2d.hpp"
-#include "../src/fern.hpp"
+#include "../src/fern/fern.hpp"
 
 using namespace std;
 int main() {

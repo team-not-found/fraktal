@@ -1,7 +1,7 @@
 #include<iostream>
 
-#include "dummy.hpp"
-#include "fern.hpp"
+#include "dummy/dummy.hpp"
+#include "fern/fern.hpp"
 
 int main(int argc, char* argv[]) {
     Fern* fern = new Fern();

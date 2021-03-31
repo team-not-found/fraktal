@@ -22,3 +22,7 @@ target_include_directories(static-fraktal
 target_include_directories(fraktal
                          PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src"
                          )
+
+install(TARGETS fraktal DESTINATION lib)
+install(DIRECTORY src/ DESTINATION include/fraktal
+        FILES_MATCHING PATTERN "*.hpp")

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "utility/matrix2d.hpp"
+#include "../utility/matrix2d.hpp"
 
 #include <unistd.h>
 #include <iostream>
