@@ -1,7 +1,5 @@
 #include "dummy.hpp"
 
-#include<iostream>
+#include <iostream>
 
-void hello() {
-    std::cout << "Hello from fraktal lib" << std::endl;
-}
+void hello() { std::cout << "Hello from fraktal lib" << std::endl; }

@@ -47,3 +47,4 @@ _deps
 
 #ingore logs of long runs
 *.log
+.vscode
