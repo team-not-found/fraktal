@@ -10,7 +10,6 @@ class Fern {
     Matrix2d<double> densityMap;
     int nX;
     int nY;
-    void generateFractal(float plotDensity, float minX, float minY, float maxX,
-                         float maxY, long int stepNumber);
+    void generateFractal(int width, int height, long int stepNumber = 1000000);
     void saveFractal(const char *filename);
 };
