@@ -9,8 +9,17 @@ int main() {
     matrix.writeToFile("matrix2dtest.bin");
 
     Fern newFern;
-    newFern.generateFractal(3, -4, 0, 4, 10, 200000);
-    newFern.saveFractal("plot.bin");
+    newFern.generateFractal(150, 50);
+    for (int i = 0; i < newFern.nX; i++) {
+        for (int j = 0; j < newFern.nY; j++) {
+            if (newFern.densityMap(i, j) == 0) {
+                std::cout << " ";
+            } else {
+                std::cout << "*";
+            }
+        }
+        std::cout << std::endl;
+    }
 
     return 0;
 }

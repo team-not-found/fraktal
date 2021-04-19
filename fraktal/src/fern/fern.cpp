@@ -4,14 +4,21 @@
 #include <ctime>
 #include <fstream>
 
-void Fern::generateFractal(float plotDensity, float minX, float minY,
-                           float maxX, float maxY, long int stepNumber) {
+void Fern::generateFractal(int width, int height, long int stepNumber) {
     std::srand((unsigned int)time(NULL)); // seed r gen
+    const float minX = -3.0;
+    const float maxX = 3.0;
+    const float minY = 0.0;
+    const float maxY = 10.0;
+
+    nX = height;
+    nY = width;
+
     int rand;
     float xy[2] = {0., 0.};
     float x_temp;
-    nX = (int)(maxX - minX) * plotDensity;
-    nY = (maxY - minY) * plotDensity;
+    float plotDensityX = nX / (maxX - minX);
+    float plotDensityY = nY / (maxY - minY);
     densityMap = Matrix2d<double>(nX, nY);
 
     float f1[2][2] = {{0., 0.}, {0., 0.16}};
@@ -47,8 +54,8 @@ void Fern::generateFractal(float plotDensity, float minX, float minY,
         }
         if ((xy[0] < maxX) && (xy[0] > minX) && (xy[1] < maxY) &&
             (xy[1] > minY)) {
-            densityMap((int)((xy[0] - minX) * plotDensity),
-                       (int)((xy[1] - minY) * plotDensity)) += 1;
+            densityMap((int)((xy[0] - minX) * plotDensityX),
+                       (int)((xy[1] - minY) * plotDensityY)) += 1;
         }
     }
 }
