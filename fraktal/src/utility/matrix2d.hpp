@@ -19,6 +19,15 @@ template <class T> class Matrix2d {
         this->n = n;
         this->m = m;
         matrix = new T[n * m];
+
+        for (int i = 0; i < n * m; i++) {
+            matrix[i] = (T)0;
+        }
+    }
+
+    ~Matrix2d() {
+        std::cout << "Called Matrix2D destructor!\n";
+        delete matrix;
     }
 
     T *getData() { return matrix; }

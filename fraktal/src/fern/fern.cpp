@@ -19,7 +19,7 @@ void Fern::generateFractal(int width, int height, long int stepNumber) {
     float x_temp;
     float plotDensityX = nX / (maxX - minX);
     float plotDensityY = nY / (maxY - minY);
-    densityMap = Matrix2d<double>(nX, nY);
+    densityMap = new Matrix2d<double>(nX, nY);
 
     float f1[2][2] = {{0., 0.}, {0., 0.16}};
     float f2[2][2] = {{0.85, 0.04}, {-0.04, 0.85}};
@@ -54,12 +54,17 @@ void Fern::generateFractal(int width, int height, long int stepNumber) {
         }
         if ((xy[0] < maxX) && (xy[0] > minX) && (xy[1] < maxY) &&
             (xy[1] > minY)) {
-            densityMap((int)((xy[0] - minX) * plotDensityX),
-                       (int)((xy[1] - minY) * plotDensityY)) += 1;
+            densityMap->operator()((int)((xy[0] - minX) * plotDensityX),
+                                   (int)((xy[1] - minY) * plotDensityY)) += 1;
         }
     }
 }
 
 void Fern::saveFractal(const char *filename) {
-    densityMap.writeToFile(filename);
+    densityMap->writeToFile(filename);
+}
+
+Fern::~Fern() {
+    std::cout << "Called Fern destructor!\n";
+    delete densityMap;
 }
