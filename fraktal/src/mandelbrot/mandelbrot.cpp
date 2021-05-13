@@ -14,7 +14,7 @@ void Mandelbrot::generateFractal(int width, int height, double x0, double y0,
         for (int j = 0; j < nX; j++) {
             densityMap->operator()(i, j) = Mandelbrot::element(
                 j * 1. / width * (x1 - x0) + x0,
-                i * 1. / height * (y1 - y0) + y0, stepNumber);
+                -i * 1. / height * (y1 - y0) + y1, stepNumber);
         }
     }
 }
