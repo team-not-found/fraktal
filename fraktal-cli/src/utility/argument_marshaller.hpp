@@ -24,6 +24,7 @@ class ArgumentMarshaller {
         }
 
         if (require) {
+            std::cout << "Missing required argument of type int!" << std::endl;
             exit(1);
         }
 
@@ -38,6 +39,8 @@ class ArgumentMarshaller {
         }
 
         if (require) {
+            std::cout << "Missing required argument of type double!"
+                      << std::endl;
             exit(1);
         }
 
@@ -52,6 +55,8 @@ class ArgumentMarshaller {
         }
 
         if (require) {
+            std::cout << "Missing required argument of type string!"
+                      << std::endl;
             exit(1);
         }
 
@@ -64,6 +69,7 @@ class ArgumentMarshaller {
         }
 
         if (require) {
+            std::cout << "Missing required argument of type bool!" << std::endl;
             exit(1);
         }
 
@@ -81,6 +87,8 @@ class ArgumentMarshaller {
         }
 
         if (require) {
+            std::cout << "Missing required argument of type string!"
+                      << std::endl;
             exit(1);
         }
 

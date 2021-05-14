@@ -10,6 +10,8 @@ template <> std::string enumToString<FractalType>(FractalType value) {
     switch (value) {
     case FractalType::FernFractal:
         return "Fern";
+    case FractalType::MandelbrotFractal:
+        return "Mandelbrot";
     default:
         return "";
     }

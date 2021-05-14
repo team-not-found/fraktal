@@ -1,3 +1,3 @@
 #pragma once
 
-enum FractalType { FernFractal, NumberOfTypes };
+enum FractalType { FernFractal, MandelbrotFractal, NumberOfTypes };
