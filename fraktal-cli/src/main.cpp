@@ -18,6 +18,28 @@ void help() {
         std::cout << ' ' << enumToString<FractalType>((FractalType)i);
     }
     std::cout << " !" << std::endl;
+
+    std::cout
+        << "The second and third arguments are always the width the height."
+        << std::endl;
+
+    std::cout << "After these in the case of mandelbrot you need to provide "
+                 "two points in "
+                 "the plane that define a rectangle in the format x0 y0 x1 y1, "
+                 "e.g -2.0 -1.0 1.0 1.0"
+              << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "Optionally you can supply a number that will limit the "
+                 "number of iterations in case of fern and the max number of "
+                 "iterations per pixel in case of mandelbrot."
+              << std::endl;
+
+    std::cout << std::endl;
+
+    std::cout << "Finally you can give a filename where you expect the output."
+              << std::endl;
 }
 
 int main(int argc, char *argv[]) {
