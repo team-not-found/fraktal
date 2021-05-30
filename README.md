@@ -1,10 +1,11 @@
 # fraktal
 
-first
+### Requirements
+CMake version >= 3.16.
 
-    chmod +x install.sh
-    
-then install with
+
+### Intallation
+Simply run the install script with superuser privileges.
 
     sudo ./install.sh
     
